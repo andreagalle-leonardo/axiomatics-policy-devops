@@ -1,4 +1,11 @@
 {
+    // Configuration for Live Server: sets port, host, root directory, and disables auto-browser launch
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.host": "0.0.0.0",
+    "liveServer.settings.root": "build/alfa/tests/trace",
+    "liveServer.settings.NoBrowser": true,
+    "liveServer.settings.useLocalIp": true,
+
     // Defines the precise Java Home path used by the VS Code Gradle extension within GitHub Codespaces
     "java.import.gradle.java.home": "/usr/lib/jvm/msopenjdk-current"
 }
