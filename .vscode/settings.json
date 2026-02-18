@@ -1,0 +1,4 @@
+{
+    // Defines the precise Java Home path used by the VS Code Gradle extension within GitHub Codespaces
+    "java.import.gradle.java.home": "/usr/lib/jvm/msopenjdk-current"
+}

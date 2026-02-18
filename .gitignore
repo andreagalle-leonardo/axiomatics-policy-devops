@@ -2,6 +2,6 @@
 bin/**/*
 build/**/*
 out/**/*
-.vscode/**/*
+# .vscode/**/*
 **/src-gen
 buildSrc/build

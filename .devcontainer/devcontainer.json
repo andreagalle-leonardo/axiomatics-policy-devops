@@ -1,0 +1,17 @@
+{
+  "name": "Axiomatics Policy DevOps",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.vscode-groovy",
+        "vscjava.vscode-gradle",
+        "mhutchie.git-graph",
+        "Axiomatics.alfa"
+      ]
+    }
+  },
+  "postCreateCommand": "./gradlew --no-daemon -v || true",
+  "remoteUser": "vscode"
+}
