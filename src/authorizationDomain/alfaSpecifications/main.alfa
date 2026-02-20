@@ -4,5 +4,7 @@ namespace acme {
         apply firstApplicable
         managers.Managers
         consultants.Consultants
+        // aggiungi il riferimento fully-qualified al nuovo policyset
+        mil.defense.filebrowser.GlobalAccessControl
     }
 }

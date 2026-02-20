@@ -34,4 +34,38 @@ namespace resource {
         category = resourceCat
     }
 }
+// ...existing code...
+namespace mil.defense.filebrowser {
+    // ...existing code...
+    // Aggiunta attributi per mil.defense.filebrowser
+    attribute userRole {
+        category = subjectCat
+        id = "mil.defense.filebrowser.userRole"
+        type = string
+    }
 
+    attribute clearanceLevel {
+        category = subjectCat
+        id = "mil.defense.filebrowser.clearanceLevel"
+        type = integer
+    }
+
+    attribute deviceType {
+        category = subjectCat
+        id = "mil.defense.filebrowser.deviceType"
+        type = string
+    }
+
+    attribute resourcePath {
+        category = resourceCat
+        id = "mil.defense.filebrowser.resourcePath"
+        type = string
+    }
+
+    attribute actionId {
+        category = actionCat
+        id = "mil.defense.filebrowser.actionId"
+        type = string
+    }
+    // ...existing code...
+}

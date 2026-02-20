@@ -1,0 +1,52 @@
+namespace mil.defense.filebrowser {
+
+    policyset GlobalAccessControl {
+        apply denyOverrides
+
+        policy SecurityBlacklist {
+            target clause userRole == "suspended"
+            apply firstApplicable
+            rule DenySuspendedUsers { deny }
+        }
+
+        policyset OperationalScope {
+            target clause actionId == "read" or actionId == "write"
+            apply firstApplicable
+
+            policy TopSecretData {
+                target clause stringRegexpMatch("^/top-secret/.*", resourcePath)
+                apply permitOverrides
+                rule AllowGenerals {
+                    condition userRole == "general"
+                    permit
+                }
+                rule AllowHighClearanceSecureDevice {
+                    condition clearanceLevel >= 3 && deviceType == "secure-terminal"
+                    permit
+                }
+            }
+
+            policy MissionData {
+                target clause stringRegexpMatch("^/operations/.*", resourcePath)
+                apply permitOverrides
+                rule AnalystsRead {
+                    condition userRole == "analyst" && actionId == "read"
+                    permit
+                }
+                rule CommandersWrite {
+                    condition userRole == "field-commander"
+                    permit
+                }
+            }
+
+            policy PublicDocs {
+                target clause stringRegexpMatch("^/public/.*", resourcePath)
+                apply permitOverrides
+                rule AllowAllAuthenticated {
+                    condition userRole == "general" || userRole == "analyst" || userRole == "soldier"
+                    permit
+                }
+            }
+        }
+    }
+}
